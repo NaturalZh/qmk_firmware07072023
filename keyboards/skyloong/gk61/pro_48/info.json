@@ -24,7 +24,7 @@
         "debounce_type": "asym_eager_defer_pk"
     },
     "matrix_pins": {
-        "cols": ["B13", "A0", "A1", "B14", "B15", "A8", "A9", "A10", "A15", "B3", "B4", "B5", "B8", "B9"],
+        "cols": ["A5", "A0", "A1", "B7", "B11", "A8", "A9", "A10", "A15", "B3", "B4", "B5", "B8", "B9"],
         "rows": ["B10", "B1", "B0", "A7", "A6"]
     },
     "processor": "STM32F103",
