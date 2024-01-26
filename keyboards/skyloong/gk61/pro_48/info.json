@@ -1,6 +1,6 @@
 {
     "manufacturer": "skyloong",
-    "keyboard_name": "GK61 pro 48_2.0.1",
+    "keyboard_name": "GK61 pro 48_3.0.0",
     "maintainer": "NaturalZh",
     "bootloader": "stm32duino",
 
@@ -52,7 +52,7 @@
             "splash": true,
             "solid_splash": true
         },
-        "driver": "is31fl3743a",
+        "driver": "aw20216",
         "layout": [
             {"matrix": [0, 0], "x": 0, "y": 0, "flags": 4},
             {"matrix": [0, 1], "x": 16, "y": 0, "flags": 4},
@@ -127,7 +127,7 @@
     },
     "url": "https://github.com/JZ-Skyloong",
     "usb": {
-        "device_version": "2.0.1",
+        "device_version": "3.0.0",
         "pid": "0x6A62",
         "vid": "0x1EA7",
         "max_power": 380

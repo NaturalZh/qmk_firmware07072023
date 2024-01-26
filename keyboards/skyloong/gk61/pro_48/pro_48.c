@@ -7,8 +7,11 @@ _Bool L_WIN = 0;
 _Bool L_MAC = 0;
 
 #if defined(RGB_MATRIX_ENABLE)  /*&& defined(CAPS_LOCK_INDEX)*/
-const is31_led PROGMEM g_is31_leds[RGB_MATRIX_LED_COUNT] = {
-/* Refer to IS31 manual for these locations
+const aw20216s_led_t PROGMEM g_aw20216s_leds[AW20216S_LED_COUNT] = {
+/* Each AW20216 channel is controlled by a register at some offset between 0x00
+ * and 0xD7 inclusive.
+ * See drivers/awinic/aw20216.h for the mapping between register offsets and
+ * driver pin locations.
  *   driver
  *   |  R location
  *   |  |          G location
