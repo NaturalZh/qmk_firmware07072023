@@ -128,7 +128,7 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
     if (!rgb_matrix_indicators_advanced_user(led_min, led_max)) {
         return false;
     }
-
+/*
     if (host_keyboard_led_state().num_lock) {
         RGB_MATRIX_INDICATOR_SET_COLOR(NUM_LOCK_INDEX, 255, 255, 255);
     } else {
@@ -136,6 +136,7 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
             RGB_MATRIX_INDICATOR_SET_COLOR(NUM_LOCK_INDEX, 0, 0, 0);
         }
     }
+    */
     return false;
 }
 

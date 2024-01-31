@@ -25,9 +25,9 @@
         "rgb_matrix": true
     },
     "indicators": {
-        "caps_lock": "C15",
+        "num_lock": "C15",
         "on_state": 1,
-        "scroll_lock": "C14"
+        "caps_lock": "C14"
     },
     "matrix_pins": {
         "cols": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
