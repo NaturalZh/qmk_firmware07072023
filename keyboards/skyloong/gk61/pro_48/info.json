@@ -1,9 +1,9 @@
 {
     "manufacturer": "skyloong",
-    "keyboard_name": "GK61 pro 48_2.0.1",
+    "keyboard_name": "GK61 pro 48_2.0.2",
     "maintainer": "NaturalZh",
     "bootloader": "stm32duino",
-
+    "debounce": 10,
     "diode_direction": "ROW2COL",
     "encoder": {
         "rotary": [
@@ -127,7 +127,7 @@
     },
     "url": "https://github.com/JZ-Skyloong",
     "usb": {
-        "device_version": "2.0.1",
+        "device_version": "2.0.2",
         "pid": "0x6A62",
         "vid": "0x1EA7",
         "max_power": 380
