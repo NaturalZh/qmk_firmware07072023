@@ -10,7 +10,7 @@ uint8_t IND = 0;  //buffer of LED Display
 
 int FN_ON = 0;
 bool WIN_LOCK = 0;
-bool DIS_BRETH = 0;
+bool dis_breath = 0;
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_user(keycode, record)) {
@@ -42,20 +42,27 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
       }
       return true;
 
-    case BL_TOGG:
-           if (record->event.pressed){
-               if(is_backlight_breathing()) {
-                    backlight_disable_breathing();
-                    DIS_BRETH = 1;
-                    return false;
+     case BL_TOGG:
+      if (record->event.pressed) {
+        if (is_backlight_breathing() && get_backlight_level()){
+           dis_breath = 1;
+           backlight_disable_breathing();
+           backlight_enable();
 
-                }else if(DIS_BRETH && !(is_backlight_enabled())){
-                    backlight_enable_breathing();
-                    DIS_BRETH = 0;
-                    return false;
-                }
-           }
-         return true;
+        } else if (dis_breath && !is_backlight_enabled()){
+            backlight_enable_breathing();
+            dis_breath = 0;
+        }
+        return true;
+      }
+
+     case BL_BRTG:
+      if (record->event.pressed) {
+        if (dis_breath || !is_backlight_enabled()){
+            return false;
+        }
+            return true;
+        }
 
     case KC_LGUI:
       if (FN_ON){
