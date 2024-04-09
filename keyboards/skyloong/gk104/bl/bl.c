@@ -11,6 +11,7 @@ uint8_t IND = 0;  //buffer of LED Display
 int FN_ON = 0;
 bool WIN_LOCK = 0;
 bool dis_breath = 0;
+bool SLEEP = 0;
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_user(keycode, record)) {
@@ -44,25 +45,31 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
      case BL_TOGG:
       if (record->event.pressed) {
-        if (is_backlight_breathing() && get_backlight_level()){
-           dis_breath = 1;
-           backlight_disable_breathing();
-           backlight_enable();
-
-        } else if (dis_breath && !is_backlight_enabled()){
-            backlight_enable_breathing();
-            dis_breath = 0;
+         if (is_backlight_breathing() && get_backlight_level()){
+             dis_breath = 1;
+             backlight_disable_breathing();
+         } else if (dis_breath){
+             backlight_enable_breathing();
+             dis_breath = 0;
+            }
         }
         return true;
-      }
 
      case BL_BRTG:
       if (record->event.pressed) {
         if (dis_breath || !is_backlight_enabled()){
             return false;
+          }
         }
-            return true;
+      return true;
+
+     case BL_UP:
+      if (dis_breath){
+            backlight_enable_breathing();
+            dis_breath = 0;
         }
+      return true;
+
 
     case KC_LGUI:
       if (FN_ON){
@@ -97,40 +104,10 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
    s_serial_to_parallel(IND);
 }
 
-void suspend_power_down_kb() {
-    s_serial_to_parallel(0);
-    suspend_power_down_user();
-}
-
-void suspend_wakeup_init_kb() {
-    s_serial_to_parallel(IND);
-    suspend_wakeup_init_user();
-}
-
-bool shutdown_kb(bool jump_to_bootloader) {
-    s_serial_to_parallel(0);
-    return true;
-}
-
-layer_state_t default_layer_state_set_kb(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-    case 0:
-        //switch to win layer display
-        IND = IND & (~MAC_ON);
-        IND = IND | WIN_ON;
-        break;
-    case 1:
-        //switch to mac layer display
-        IND = IND & (~WIN_ON);
-        IND = IND | MAC_ON;
-        break;
-    }
-    s_serial_to_parallel(IND);
-  return state;
-}
-
-
 bool led_update_kb(led_t led_state) {
+    if (SLEEP) {
+        return false;
+    }
     //caps lock display
     if (led_state.caps_lock) {
         IND = IND | CAPS_ON;
@@ -155,10 +132,46 @@ bool led_update_kb(led_t led_state) {
 }
 
 
+void suspend_power_down_kb() {
+    SLEEP = 1;
+    suspend_power_down_user();
+    s_serial_to_parallel(0);
+}
+
+void suspend_wakeup_init_kb() {
+    SLEEP = 0;
+    s_serial_to_parallel(IND);
+    suspend_wakeup_init_user();
+}
+
+bool shutdown_kb(bool jump_to_bootloader) {
+    SLEEP = 1;
+    s_serial_to_parallel(0);
+    return true;
+}
+
+layer_state_t default_layer_state_set_kb(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+    case 0:
+        //switch to win layer display
+        IND = IND & (~MAC_ON);
+        IND = IND | WIN_ON;
+        break;
+    case 1:
+        //switch to mac layer display
+        IND = IND & (~WIN_ON);
+        IND = IND | MAC_ON;
+        break;
+    }
+    s_serial_to_parallel(IND);
+  return state;
+}
+
 void board_init(void) {
     // JTAG-DP Disabled and SW-DP Disabled
     AFIO->MAPR = (AFIO->MAPR & ~AFIO_MAPR_SWJ_CFG_Msk) | AFIO_MAPR_SWJ_CFG_DISABLE;
     s_serial_to_parallel(0xFF);
     IND = SKYLOONG;
+    SLEEP = 0;
 }
 
