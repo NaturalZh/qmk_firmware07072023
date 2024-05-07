@@ -35,10 +35,7 @@
         "nkro": true,
         "backlight": true
     },
-    "indicators": {
-        "num_lock": "B10",
-        "on_state": 1
-    },
+
     "build": {
         "debounce_type": "asym_eager_defer_pk"
     },

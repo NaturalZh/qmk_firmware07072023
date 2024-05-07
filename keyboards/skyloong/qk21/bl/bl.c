@@ -4,6 +4,15 @@
 
 bool DIS_BRETH = 0;
 
+bool led_update_kb(led_t led_state) {
+    gpio_set_pin_output_open_drain(B10);
+    bool res = led_update_user(led_state);
+    if(res) {
+        gpio_write_pin(B10, !led_state.num_lock);
+    }
+    return res;
+}
+
 void suspend_power_down_kb(void) {
     gpio_write_pin_low(BACKLIGHT_PIN);
     suspend_power_down_user();
