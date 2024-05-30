@@ -1,11 +1,11 @@
-# GK68 PRO
+# GK68 Q1
 
-![GK68 PRO](https://i.imgur.com/YAFEoq7h.jpg)
+![GK68 Q1](https://i.imgur.com/YAFEoq7h.jpg)
 
 ## The PCB features:
 * QMK & VIA compatibility
 * RGB Matrix backlight
-* The space bar position switch can be interchanged with encoder module.
+* The space bar position switch can be interchanged with split space bar.
 
 
 The following is the QMK Firmware for the Destop 68 key layout -  designed in Dongguan Jizhi Electronic Technology Co., Ltd
@@ -16,11 +16,11 @@ The following is the QMK Firmware for the Destop 68 key layout -  designed in Do
 
 Make example for this keyboard (after setting up your build environment):
 
-    make skyloong/gk68/pro:default
+    make skyloong/gk68/q1:default
 
 Flashing example for this keyboard:
 
-    make skyloong/gk68/pro:default:flash
+    make skyloong/gk68/q1:default:flash
 
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
 

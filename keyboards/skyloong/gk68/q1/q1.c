@@ -31,7 +31,7 @@ const aw20216s_led_t PROGMEM g_aw20216s_leds[AW20216S_LED_COUNT] = {
     {0, CS1_SW12,  CS2_SW12,  CS3_SW12},
     {0, CS18_SW1,  CS17_SW1,  CS16_SW1},
     {0, CS18_SW2,  CS17_SW2,  CS16_SW2},
-    {0, CS18_SW3,  CS17_SW3,  CS16_SW3},
+    // encoder no led
 
     {0, CS4_SW1,   CS5_SW1,   CS6_SW1},
     {0, CS4_SW2,   CS5_SW2,   CS6_SW2},
