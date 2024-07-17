@@ -56,7 +56,7 @@ static inline void select_delay(uint16_t n) {
     };
 }
 
-static inline void clockPulse(uint16_t n) {
+static inline void clock_pulse(uint16_t n) {
     gpio_write_pin_high(HC595_SH_PIN);
     gpio_write_pin_high(HC595_ST_PIN);
     select_delay(n);
@@ -74,7 +74,7 @@ static void s_serial_to_parallel(uint8_t data) { // Serial port to parallel port
         }else{
             gpio_write_pin_low(HC595_DS);
         }
-        clockPulse(CLOCK_TIME);
+        clock_pulse(CLOCK_TIME);
         data >>= 1; // Move the data one digit to the right
     }
 }
