@@ -1,4 +1,4 @@
-# The GK75 BL is an Backlight Keyboard with an encoder.
+# The GK75 BL ansi is an Backlight ansi layout Keyboard with an encoder.
 
 ![GK75 BL ansi](https://i.imgur.com/G9PrQtth.png)
 
