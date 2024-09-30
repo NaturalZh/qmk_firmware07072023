@@ -103,15 +103,18 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
 
 void suspend_power_down_kb(void) {
     gpio_write_pin_low(AW20216S_EN_PIN_1);
+    gpio_write_pin_high(KEY_STATUS_PIN);
     suspend_power_down_user();
 }
 
 void suspend_wakeup_init_kb(void) {
     gpio_write_pin_high(AW20216S_EN_PIN_1);
+    gpio_write_pin_low(KEY_STATUS_PIN);
     suspend_wakeup_init_user();
 }
 bool shutdown_kb(bool jump_to_bootloader) {
     gpio_write_pin_low(AW20216S_EN_PIN_1);
+    gpio_write_pin_high(KEY_STATUS_PIN);
     return true;
 }
 
