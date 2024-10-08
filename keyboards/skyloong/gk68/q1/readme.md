@@ -1,18 +1,19 @@
 # GK68 Q1
 
-![GK68 Q1](https://i.imgur.com/YAFEoq7h.jpg)
+![GK68 Q1](https://i.imgur.com/zJC3aMY.jpeg)
 
 ## The PCB features:
 * QMK & VIA compatibility
 * RGB Matrix backlight
 * The space bar position switch can be interchanged with split space bar.
+* There is a fixed-mount encoder at the top right of the keyboard.
 
 
 The following is the QMK Firmware for the Destop 68 key layout -  designed in Dongguan Jizhi Electronic Technology Co., Ltd
 
 * Keyboard Maintainer: [NaturalZh](https://github.com/NaturalZh)
 * Hardware Supported: DestopPCB for Skyloong keylayout 68%, STM32F103C8T6
-* Hardware Availability: http://www.skyloong.com.cn  https://skyloong.vip
+* Hardware Availability: http://www.skyloong.com.cn  https://skyloongtech.com
 
 Make example for this keyboard (after setting up your build environment):
 
