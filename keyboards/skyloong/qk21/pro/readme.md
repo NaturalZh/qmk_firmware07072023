@@ -12,7 +12,7 @@ The following is the QMK Firmware for the Destop 21 key layout -  designed in Do
 
 * Keyboard Maintainer: [NaturalZh](https://github.com/NaturalZh)
 * Hardware Supported: DestopPCB for Skyloong keylayout 20%, STM32F103C8T6
-* Hardware Availability: http://www.skyloong.com.cn  https://skyloong.vip
+* Hardware Availability: [Skyloong CN](http://www.skyloong.com.cn) & [Skyloong HK](https://skyloongtech.com/product-category/keyboards/qmkvia-keyboard/)
 
 Make example for this keyboard (after setting up your build environment):
 
