@@ -1,11 +1,7 @@
 //  Copyright 2023 NaturalZh (@NaturalZh)
 // SPDX-License-Identifier: GPL-2.0-or-later
 #include "quantum.h"
-
-#define HC595_ST_PIN B1  //74HC595 storage register clock input
-#define HC595_SH_PIN B0  //74HC595 shift register clock input
-#define HC595_DS B3   // 74HC595 serial data input
-#include "led_hc595.c"
+#include "led_hc595.h"
 uint8_t IND = 0;  //buffer of LED Display
 
 int FN_ON = 0;
